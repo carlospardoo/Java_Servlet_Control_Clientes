@@ -18,7 +18,7 @@ public class ClienteDaoJDBC {
     public static final String SQL_INSERT = "INSERT INTO cliente(nombre, apellido, telefono, email, saldo)"
             + " VALUES(?, ?, ?, ?, ?)";
     public static final String SQL_UPDATE = "UPDATE cliente SET"
-            + " nombre = ?, apellido =?, telefono=?, email=?, saldo=?)"
+            + " nombre = ?, apellido = ?, telefono = ?, email = ?, saldo = ?"
             + " WHERE id_cliente = ?";
     public static final String SQL_DELETE = "DELETE FROM cliente"
             + " WHERE id_cliente = ?";
@@ -72,7 +72,7 @@ public class ClienteDaoJDBC {
             stmt.setInt(1, cliente.getIdCliente());
             rs = stmt.executeQuery();
             
-            rs.absolute(1); //para posicionarse en el registro indicado en el parametro
+            rs.next(); //para posicionarse en el registro indicado en el parametro
             cliente.setNombre(rs.getString("nombre"));
             cliente.setApellido(rs.getString("apellido"));
             cliente.setEmail(rs.getString("email"));
