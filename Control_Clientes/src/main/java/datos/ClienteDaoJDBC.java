@@ -159,7 +159,7 @@ public class ClienteDaoJDBC {
         
         try {
             conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_UPDATE);
+            stmt = conn.prepareStatement(SQL_DELETE);
             stmt.setInt(1, cliente.getIdCliente());
             
             rows = stmt.executeUpdate();
